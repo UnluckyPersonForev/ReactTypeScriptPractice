@@ -1,21 +1,26 @@
-import { FC } from "react"
+import { FC } from "react";
 import { FeedbackType } from "../Feedback";
+import s from "../feedBack.module.css";
 
-
-interface IfeedBackProps{
+interface IfeedBackProps {
     options: FeedbackType[];
-    onLeaveFeedback: (option: FeedbackType) => void
+    onLeaveFeedback: (option: FeedbackType) => void;
 }
 
-const FeedbackOptions:FC<IfeedBackProps> = ({options, onLeaveFeedback}) =>{
+const FeedbackOptions: FC<IfeedBackProps> = ({ options, onLeaveFeedback }) => {
     return (
-        <div>
-            {options.map(item => (
-                <button onClick={() => onLeaveFeedback(item)}  key={item} type="button">{item}</button>
-            ))
-               
-            }
+        <div className={s.feedBack__button_container}>
+            {options.map((item) => (
+                <button
+                    onClick={() => onLeaveFeedback(item)}
+                    className={`${s.button} ${s.feedbackButton}`}
+                    key={item}
+                    type="button"
+                >
+                    {item}
+                </button>
+            ))}
         </div>
-    )
-}
-export default FeedbackOptions
+    );
+};
+export default FeedbackOptions;

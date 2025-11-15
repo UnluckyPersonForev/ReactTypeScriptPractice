@@ -1,10 +1,12 @@
 import { FC } from "react";
-
-interface INotification{
+import s from "../feedBack.module.css";
+interface INotification {
     message: string;
 }
-export const Notifi:FC<INotification>  =({message})=>{
-return(<>
-<p className="notification__text">{message}</p>
-</>)
-}
+export const Notifi: FC<INotification> = ({ message }) => {
+    return (
+        <>
+            <p className={s.notification__text}>{message}</p>
+        </>
+    );
+};
